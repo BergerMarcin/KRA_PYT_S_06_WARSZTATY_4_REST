@@ -29,14 +29,15 @@ $(function () {
             }).done(function (bookJSON) {
                 console.log('Book of id = ' + $(this).data('id') + ' READ');
                 console.log(bookJSON);
-                let tableDetail = $(`<ul>
-                      <li>ID: "${bookJSON.id}"</li>
-                      <li>Author: "${bookJSON.author}"</li>
-                      <li>Title: "${bookJSON.title}"</li>
-                      <li>ISBN: "${bookJSON.isbn}"</li>
-                      <li>Genre: "${bookJSON.genre}"</li>
-                      </ul>`);
-                $('#detailsModalCenter .modal-body').text(tableDetail);
+                let tableDetail = $(`
+                      <p>ID: ${bookJSON.id}</p>
+                      <p>Author: ${bookJSON.author}</p>
+                      <p>Title: "${bookJSON.title}"</p>
+                      <p>ISBN: ${bookJSON.isbn}</p>
+                      <p>Genre: ${bookJSON.genre}</p>
+                      `);
+                $('#detailsModalCenter .modal-body').text('');
+                $('#detailsModalCenter .modal-body').prepend(tableDetail);
             }).fail(function (xhr, status, err) {
             }).always(function (xhr, status) {
             })
