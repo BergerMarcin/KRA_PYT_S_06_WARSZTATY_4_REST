@@ -100,8 +100,15 @@ $(function () {
 // MAIN
 
     // preparation
-    const TEMPLATE_BOOK_TR = '<tr id="books-tr"><td id="title"></td><td id="details"><button class="btn btn-secondary" id="details-button" data-id="" data-toggle="modal" data-target="#detailsModalCenter">Details</button></td>\n' +
-        '<td id="delete"><button class="btn btn-warning" id="delete-button" data-toggle="modal" data-target="#deleteModalCenter">Delete</button></td></tr>';
+    GENRES = (
+            (1, "Romans"),
+            (2, "Obyczajowa"),
+            (3, "Sci-fi i fantasy"),
+            (4, "Literatura faktu"),
+            (5, "Popularnonaukowa"),
+            (6, "Poradnik"),
+            (7, "Kryminał, sensacja")
+    );
     $('#books-tr-template').css('display', 'none');
 
     // start
