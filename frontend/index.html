@@ -30,7 +30,7 @@
     <h1>Books list</h1>
     <br>
     <button class='btn btn-primary' id="add-button-1" data-toggle="modal"
-            data-target="#summaryModalCenter">Add new book
+            data-target="#addModalCenter">Add new book
     </button>
     <br><br>
     
@@ -41,9 +41,11 @@
         <!--          <th scope="col">Author</th>-->
         <th scope="col">Title</th>
         <!--          <th scope="col">ISBN</th>-->
-        <!--          <th scope="col">Genre</th>-->
         <!--          <th scope="col">ISBN</th>-->
+        <!--          <th scope="col">Genre</th>-->
+        <!--          <th scope="col">Publisher</th>-->
         <th scope="col">Details</th>
+        <th scope="col">Update</th>
         <th scope="col">Delete</th>
       </tr>
       </thead>
@@ -55,9 +57,15 @@
         <td id="title"></td>
         <!--          <td id="isbn"></td>-->
         <!--          <td id="genre"></td>-->
+        <!--          <td id="publisher"></td>-->
         <td id="details">
           <button class='btn btn-primary' id="details-button" data-id="" data-toggle="modal"
                   data-target="#detailsModalCenter">Details
+          </button>
+        </td>
+        <td id="update">
+          <button class='btn btn-warning' id="update-button" data-id="" data-toggle="modal"
+                  data-target="#updateModalCenter">Update
           </button>
         </td>
         <td id="delete">
@@ -70,24 +78,79 @@
     </table>
     <br>
     <button class='btn btn-primary' id="add-button-2" data-toggle="modal"
-            data-target="#summaryModalCenter">Add new book
+            data-target="#addModalCenter">Add new book
     </button>
+    <br><br><br>
     
     
-    <!--Modal details-->
+    <!--Modal add book - CREATE-->
+    <div class="modal fade" id="addModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="addModalCenterTitle"
+         aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="addModalLongTitle">Add New Book</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="author-add">Author</label>
+              <input name="author-add" type="text" class="form-control" id="author-add"
+                     aria-describedby="author-addHelp"
+                     placeholder="Please enter author name" required>
+              <small id="author-addHelp" class="form-text text-muted">Required filled-in field</small>
+            </div>
+            <div class="form-group">
+              <label for="title-add">Title</label>
+              <input name="title-add" type="text" class="form-control" id="title-add" aria-describedby="title-addHelp"
+                     placeholder="Please enter title" required>
+              <small id="title-addHelp" class="form-text text-muted">Required filled-in field</small>
+            </div>
+            <div class="form-group">
+              <label for="isbn-add">ISBN</label>
+              <input name="isbn-add" type="text" class="form-control" id="isbn-add" aria-describedby="isbn-addHelp"
+                     placeholder="Please enter ISBN">
+              <small id="isbn-addHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="publisher-add">Publisher</label>
+              <input name="publisher-add" type="text" class="form-control" id="publisher-add"
+                     aria-describedby="publisher-addHelp" placeholder="Please enter publisher name">
+              <small id="publisher-addHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="genre-add">Choose One Genre</label>
+              <select name=genre-add" required class="form-control" id="genre-add" aria-describedby="genre-addHelp">
+                <option value="">Select...</option>
+              </select>
+              <small id="genre-addHelp" class="form-text text-muted">Required choice</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Add book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!--Modal book details - READ DETAILS-->
     <div class="modal fade" id="detailsModalCenter" tabindex="-1" role="dialog"
          aria-labelledby="detailsModalCenterTitle"
          aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="detailsModalLongTitle">Book Details</h5>
+            <h3 class="modal-title" id="detailsModalLongTitle">Book Details</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            If you see that text there must be an error. Please press CANCEL!
+            ERROR. Please press CANCEL!
           </div>
           <div class="modal-footer">
             <!--            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>-->
@@ -97,20 +160,74 @@
       </div>
     </div>
     
-    <!--Modal delete-->
+    <!--Modal update book - UPDATE-->
+    <div class="modal fade" id="updateModalCenter" tabindex="-1" role="dialog"
+         aria-labelledby="updateModalCenterTitle"
+         aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="updateModalLongTitle">Update Book</h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="author-update">Author</label>
+              <input name="author-update" type="text" class="form-control" id="author-update"
+                     aria-describedby="author-updateHelp"
+                     placeholder="Please enter author name" required>
+              <small id="author-updateHelp" class="form-text text-muted">Required filled-in field</small>
+            </div>
+            <div class="form-group">
+              <label for="title-update">Title</label>
+              <input name="title-update" type="text" class="form-control" id="title-update" aria-describedby="title-updateHelp"
+                     placeholder="Please enter title" required>
+              <small id="title-updateHelp" class="form-text text-muted">Required filled-in field</small>
+            </div>
+            <div class="form-group">
+              <label for="isbn-update">ISBN</label>
+              <input name="isbn-update" type="text" class="form-control" id="isbn-update" aria-describedby="isbn-updateHelp"
+                     placeholder="Please enter ISBN">
+              <small id="isbn-updateHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="publisher-update">Publisher</label>
+              <input name="publisher-update" type="text" class="form-control" id="publisher-update"
+                     aria-describedby="publisher-updateHelp" placeholder="Please enter publisher name">
+              <small id="publisher-updateHelp" class="form-text text-muted"></small>
+            </div>
+            <div class="form-group">
+              <label for="genre-update">Choose One Genre</label>
+              <select name=genre-update" required class="form-control" id="genre-update" aria-describedby="genre-updateHelp">
+                <option value="">Select...</option>
+              </select>
+              <small id="genre-updateHelp" class="form-text text-muted">Required choice</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Update book</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal delete book - DELETE-->
     <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog"
          aria-labelledby="deleteModalCenterTitle"
          aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLongTitle">Delete Confirmation</h5>
+            <h2 class="modal-title" id="deleteModalLongTitle">Delete Confirmation</h2>
             <!--            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
             <!--              <span aria-hidden="true">&times;</span>-->
             <!--            </button>-->
           </div>
           <div class="modal-body">
-            If you see that text there must be an error. Please press CANCEL!
+            ERROR. Please press CANCEL!
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
